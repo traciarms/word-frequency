@@ -20,7 +20,10 @@ import sys
 
 
 def remove_ignore_list(book_list):
-
+    """ This function - given a list will remove things that are on this
+        standard remove list - could improve by making the ignore list
+        and argument into the fuction.  We return the updated list.
+    """
     my_ignore_list = ['a','able','about','across','after','all','almost','also',
                     'am','an','and','any','are','as','at','be','because',
                     'been','but','by','can','cannot','could','did','do','does',
@@ -33,7 +36,10 @@ def remove_ignore_list(book_list):
 
 
 def find_the_frequency(the_list):
-    #my_string = "hello world"
+    """ The function will takes a list of words and finds the frequency of that
+        word in the entire list.  It will return a dictionary with the word
+        frequency pairs.
+    """
 
     freq = {}
 
@@ -48,6 +54,11 @@ def find_the_frequency(the_list):
 
 
 def find_count_divisor(this_list):
+    """ The function takes a list and using just the first tuple in the list
+        (because we've already sorted the list and the first one has the
+        highest frequency) it finds the divisor needed for pairing down the
+        hash output.  It returns the divisor needed.
+    """
     max_found = this_list[0][1]
     count = 0
 
@@ -59,6 +70,10 @@ def find_count_divisor(this_list):
 
 
 def scale_back_counts(the_list, scale):
+    """ The function takes the list and the scale and scales back the
+        frequency by the divisor for each tuple so that we can print the
+        hashes.  It returns a list.
+    """
     new_list = []
 
     for item in the_list:
@@ -68,13 +83,17 @@ def scale_back_counts(the_list, scale):
 
 
 def print_word_frequency_list(my_word_frequency_list):
-
+    """ The function prints the word and numeric frequency.  No return
+    """
     for word in my_word_frequency_list:
         print("{}  {}".format(word[0].ljust(5), word[1]))
 
     print('\n')
 
 def print_hash_frequency_list(hash_list):
+    """ The function prints the word and scaled down frequency in hash tags.
+        No return.
+    """
     prntword = ''
     for item in hash_list:
         prntword = item[0]
@@ -90,6 +109,12 @@ def print_hash_frequency_list(hash_list):
 
 
 def open_filter_book(book_name):
+    """ The function takes in the name of the book and opens the file
+        reads it in, strips away unwanted characters, changes all the case
+        to lower case, splits the string upon spaces into a list and then
+        checks to make sure there isn't extra list item for extra spaces.
+        returns the book in list form.
+    """
     with open(book_name) as my_book:
 
         # read the string from the book and replace new lines and lower case it
