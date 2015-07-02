@@ -70,22 +70,23 @@ def scale_back_counts(the_list, scale):
 def print_word_frequency_list(my_word_frequency_list):
 
     for word in my_word_frequency_list:
-        print("{}  {}".format(word[0], word[1]))
+        print("{}  {}".format(word[0].ljust(5), word[1]))
 
+    print('\n')
 
 def print_hash_frequency_list(hash_list):
-    prntstr = ''
+    prntword = ''
     for item in hash_list:
-        prntstr = prntstr+item[0]+'   '
+        prntword = item[0]
         this_cnt = item[1]
+        prnthash = ''
 
         while this_cnt > 0:
-            prntstr = prntstr+'#'
+            prnthash = prnthash+'#'
             this_cnt -=1
 
-        prntstr = prntstr+'\n'
+        print(prntword.ljust(8)+prnthash)
 
-    print(prntstr)
 
 
 def open_filter_book(book_name):
